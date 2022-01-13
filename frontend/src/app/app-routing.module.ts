@@ -4,7 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { SingupComponent } from './components/singup/singup.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const appRoutes: Routes = [
   {
@@ -13,8 +13,8 @@ const appRoutes: Routes = [
   },
 
   {
-    path: 'singup',
-    component: SingupComponent
+    path: 'signup',
+    component: SignupComponent
   },
 
   {

@@ -3,6 +3,9 @@
     <div class="card-header">Login Here</div>
     <div class="card-body">
       <form #loginFrom=ngForm (ngSubmit)="onSubmit()">
+        <div class="div alert alert-danger" [hidden]="!error">
+          {{error}}
+        </div>
         <div class="row mb-3">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
@@ -16,7 +19,11 @@
             <input type="password" name="password" class="form-control" [(ngModel)]="form.password" required>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!loginFrom.valid">Sign in</button>
+
+        <div class="col-sm-12 offset-2">
+          <button type="submit" class="btn btn-primary" [disabled]="!loginFrom.valid">Sign in</button>
+          <a class="btn btn-info float-right" routerLink="/signup">Sign Up</a>
+        </div>
       </form>
     </div>
   </div>
