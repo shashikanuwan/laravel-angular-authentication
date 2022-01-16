@@ -12,6 +12,11 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { AppRoutingModule } from './app-routing.module';
 import { SignupComponent } from './components/signup/signup.component';
 import { JarwisService } from './Services/jarwis.service';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { TokenService } from './Services/token.service';
+import { AuthService } from './Services/auth.service';
+import { AfterLoginService } from './Services/after-login.service';
+import { BeforeLoginService } from './Services/before-login.service';
 
 
 @NgModule({
@@ -29,9 +34,13 @@ import { JarwisService } from './Services/jarwis.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SnotifyModule
   ],
-  providers: [JarwisService],
+  providers: [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

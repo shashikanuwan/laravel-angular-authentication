@@ -10,11 +10,15 @@ export class JarwisService {
 
   constructor(private http: HttpClient) { }
 
-  signup(data:any) {
+  signup(data: any) {
     return this.http.post('http://localhost:8000/api/signup', data)
   }
 
-  login(data:any) {
+  login(data: any) {
     return this.http.post('http://localhost:8000/api/login', data)
+  }
+
+  sendPaswordResetLink(data: any) {
+    return this.http.post('http://localhost:8000/api/sendPasswordResetLink', data);
   }
 }
