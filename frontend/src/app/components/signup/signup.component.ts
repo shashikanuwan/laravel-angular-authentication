@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { JarwisService } from 'src/app/Services/jarwis.service';
+import { TokenService } from 'src/app/Services/token.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,13 +19,22 @@ export class SignupComponent implements OnInit {
 
   public error = [];
 
-  constructor(private JarWis: JarwisService) { }
+  constructor(
+    private JarWis: JarwisService,
+    private Token: TokenService,
+    private router: Router
+  ) { }
 
   onSubmit() {
     this.JarWis.signup(this.form).subscribe(
-      data => console.log(data),
-      error => this.handleError(error)
+      data => this.handleResponse(data),
+      error => this.handleResponse(error)
     );
+  }
+
+  handleResponse(data: any) {
+    this.Token.handle(data.access_token);
+    this.router.navigateByUrl('/profile');
   }
 
   handleError(error: any) {

@@ -14,7 +14,6 @@ export class TokenService {
 
   handle(token: any) {
     this.set(token);
-    console.log(this.isValide())
   }
 
   set(token: any) {
@@ -49,7 +48,7 @@ export class TokenService {
     return JSON.parse(atob(payload));
   }
 
-  logedIn() {
+  loggedIn() {
     return this.isValide();
   }
 }
