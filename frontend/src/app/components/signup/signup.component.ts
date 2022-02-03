@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     this.JarWis.signup(this.form).subscribe(
       data => this.handleResponse(data),
-      error => this.handleResponse(error)
+      error => this.handleError(error)
     );
   }
 

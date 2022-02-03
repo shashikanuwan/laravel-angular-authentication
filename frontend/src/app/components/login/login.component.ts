@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.Jarwis.login(this.form).subscribe(
       data => this.handleResponse(data),
-      error => this.handleResponse(error)
+      error => this.handleError(error)
     );
   }
 

@@ -21,4 +21,8 @@ export class JarwisService {
   sendPaswordResetLink(data: any) {
     return this.http.post('http://localhost:8000/api/sendPasswordResetLink', data);
   }
+
+  changePassword(data: any) {
+    return this.http.post('http://localhost:8000/api/resetPassword', data);
+  }
 }
